@@ -24,3 +24,4 @@ virtualenv <your-env>
 ## Usage
 Open the project of your IDE of choice (I used pyCharm CE). Press the green play button to run the program and in the console enter a search query. Five books will be displayed. Choose a book to add to your reading like by selecting 1 - 5. Once you are done searching type 'exit' to end the program. 
 
+Google Books API documentation can be viewed [here](https://developers.google.com/books). 
