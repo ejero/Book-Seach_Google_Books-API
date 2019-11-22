@@ -1,12 +1,12 @@
 __author__ = 'Rosita Emakpo'
 import pprint
 
-#build API
+# build API
 from googleapiclient.discovery import build
 API_KEY = "AIzaSyCMwb06zVeOcjJivtIVxv_LSUGeaVFzzRQ"
 service = build('books', 'v1', developerKey="AIzaSyCMwb06zVeOcjJivtIVxv_LSUGeaVFzzRQ")
 
-# this list will be the reading will be the reading list.
+# this will be the reading list.
 # we will add to it everytime he searches.
 items = []
 while True:
@@ -15,8 +15,12 @@ while True:
         # if the user types exit stop searching
         break;
 
+    # check if search query is blank
+    while searchQuery == '':
+        searchQuery = input("Search query can not be blank: ")
+
     # do the search
-    search = service.volumes().list(q= searchQuery)
+    search = service.volumes().list(q=searchQuery)
     response = search.execute()
 
     # display the top 5 items
@@ -32,9 +36,8 @@ while True:
 
     # fetch that item from the json response.
     item = response['items'][x]['volumeInfo']
-    # conver the item's structure into the required format and add it to the list
-    items.append({'title': vol['title'], 'authors': vol['authors'],
-                      'publisher': vol.get('publisher')})
+    # convert the item's structure into the required format and add it to the list
+    items.append({'title': vol['title'], 'authors': vol['authors'], 'publisher': vol.get('publisher')})
 
 # display the reading list.
 print("Here is your reading list")
