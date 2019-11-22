@@ -1,5 +1,5 @@
 # BooksSearch
-BooksSeach.py is a Python project that shows how to to utilize the Google Books API 
+BooksSeach.py is a Python project that uses Google Books API 
 
 ## Installation
 There are a couple things you will need in order to properly run this app.
