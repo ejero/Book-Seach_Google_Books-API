@@ -4,7 +4,7 @@ import pprint
 # build API
 from googleapiclient.discovery import build
 API_KEY = "AIzaSyCMwb06zVeOcjJivtIVxv_LSUGeaVFzzRQ"
-service = build('books', 'v1', developerKey="AIzaSyCMwb06zVeOcjJivtIVxv_LSUGeaVFzzRQ")
+service = build('books', 'v1', developerKey="Enter Your Key here")
 
 # this will be the reading list.
 # we will add to it every time he searches.
