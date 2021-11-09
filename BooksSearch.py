@@ -3,7 +3,7 @@ import pprint
 
 # build API
 from googleapiclient.discovery import build
-API_KEY = "AIzaSyCMwb06zVeOcjJivtIVxv_LSUGeaVFzzRQ"
+API_KEY = "#"
 service = build('books', 'v1', developerKey="Enter Your Key here")
 
 # this will be the reading list.
