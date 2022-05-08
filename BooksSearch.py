@@ -1,10 +1,12 @@
 __author__ = 'Rosita Emakpo'
 import pprint
+import credentials
 
 # build API
 from googleapiclient.discovery import build
-API_KEY = "#"
-service = build('books', 'v1', developerKey="Enter Your Key here")
+
+#API_KEY = ""
+service = build('books', 'v1', developerKey= credentials.API_KEY)
 
 # this will be the reading list.
 # we will add to it every time he searches.
