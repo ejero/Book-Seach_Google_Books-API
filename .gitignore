@@ -1,2 +1,7 @@
 .idea
+
+# Api key
 credentials.py
+
+# Byte-compiled 
+__pycache__
