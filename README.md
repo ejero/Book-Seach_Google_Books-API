@@ -5,6 +5,7 @@ BooksSeach.py is a Python project that uses Google Books API
 There are a couple things you will need in order to properly run this app.
 - Google Client API
 - Python 3.4 or newer
+- Google API key
 
 ### Mac/Linux
 ```bash
