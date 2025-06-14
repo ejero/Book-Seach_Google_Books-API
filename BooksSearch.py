@@ -60,17 +60,50 @@ def search_and_display_books():
         except Exception as e:
             print(f"An error occurred during the search: {e}\n")
 
-def show_reading_list():
-    search_and_display_books()
-    print("\nHere is your reading list:")
+def delete_from_reading_list():
     if not reading_list:
-        print("Your reading list is empty.")
-    for item in reading_list:
+        print("Your reading list is empty. Nothing to delete.")
+        return
+    print("\nYour current reading list:")
+    for idx, item in enumerate(reading_list, 1):
         title = item['title']
         authors = ', '.join(item['authors']) if item['authors'] else 'Unknown Author'
-        publisher = item['publisher']
-        print(f"{title} by {authors}")
-        print(f"\tpublished by {publisher}")
+        print(f"{idx}. {title} by {authors}")
+    try:
+        selection = int(input("Enter the number of the book to delete (or 0 to cancel): "))
+        if selection == 0:
+            print("Deletion cancelled.")
+            return
+        if 1 <= selection <= len(reading_list):
+            removed = reading_list.pop(selection - 1)
+            print(f"Removed '{removed['title']}' from your reading list.\n")
+        else:
+            print("Invalid selection.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+def show_reading_list():
+    search_and_display_books()
+    while True:
+        print("\nHere is your reading list:")
+        if not reading_list:
+            print("Your reading list is empty.")
+        else:
+            for item in reading_list:
+                title = item['title']
+                authors = ', '.join(item['authors']) if item['authors'] else 'Unknown Author'
+                publisher = item['publisher']
+                print(f"{title} by {authors}")
+                print(f"\tpublished by {publisher}")
+        print("\nOptions: [D]elete a book, [Q]uit")
+        choice = input("Choose an option: ").strip().lower()
+        if choice == 'd':
+            delete_from_reading_list()
+        elif choice == 'q':
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid option. Please choose again.")
 
 if __name__ == "__main__":
     show_reading_list()
